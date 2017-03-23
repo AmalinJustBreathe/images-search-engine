@@ -1,0 +1,24 @@
+.image-search-wrap{
+    background-color: palegoldenrod;
+    min-height: 100vh;
+    padding: 1% 5% 6%;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+image-search-header{
+    background:inherit;
+}
+
+.main{
+    display:flex;
+}
+
+image-search-gallery{
+    flex:3;
+}
+
+.history-wrap{
+    flex:1;
+}
+
+

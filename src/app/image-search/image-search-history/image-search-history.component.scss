@@ -1,0 +1,88 @@
+@import '../../../styles.scss';
+
+h3{
+    margin-top: 9%;
+    margin-bottom: 5%;
+    text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
+}
+
+.toggleHistory{   
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.1);
+    padding: 0.3em 1em;
+    text-transform: uppercase;
+    float: right;
+    line-height: 1.2rem;
+}
+
+.showHistory{
+    margin-top: 50px;
+}
+
+.history{
+    background: hsla($base-hsl-color, 96%, 90%, 0.2);
+    padding: 0 0 8%  8%;
+    min-width: 350px;
+    display: inline-table;
+    margin-top: 47px;
+    box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
+    @include animation('show 500ms linear 0s 1 normal forwards');
+}
+
+.hideAnimation{
+    //todo: fix animation
+    @include animation('hide 500ms linear 0s 1 normal forwards');
+    display: none;
+}
+
+@include keyframes ('show') {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@include keyframes ('hide') {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    99% {
+        display: none;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+tr:hover{
+    cursor:pointer;
+}
+
+.clearHistoryBtn{      
+    background: hsla($base-hsl-color,100%,70%,0.2) linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    line-height: 150%;
+    border-radius: 0.4em;
+    box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
+    text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
+    border: 1px dotted rgba(0, 0, 0, 0.3);
+    padding: .3em .8em;
+}
+
+.clearHistoryBtn:hover{
+    background: hsla($base-hsl-color,100%,85%,0.3) linear-gradient(rgba(255, 255, 255, 0.6), transparent);
+    -webkit-animation: pulse 1s ease 0s infinite normal;
+    -moz-animation: pulse 1s ease 0s infinite normal;
+    animation: pulse 1s ease 0s infinite normal;
+}  

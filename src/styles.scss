@@ -1,0 +1,29 @@
+//variables
+$base-hsl-color: 120; //a global color for many parts of the app
+$breakpoint-small: 500px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 1200px;
+
+
+
+//mixin
+@mixin keyframes ($animation_name) {
+        @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @keyframes #{$animation_name} {
+        @content;
+    }
+} 
+
+@mixin animation($str) {
+-webkit-animation: #{$str};
+-moz-animation: #{$str};
+-ms-animation: #{$str};
+animation: #{$str};      
+}

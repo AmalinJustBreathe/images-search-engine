@@ -1,0 +1,28 @@
+<span [ngClass]="{'hide': showHistory}" 
+      class='toggleHistory showHistory' 
+      (click)='showHistory = !showHistory'>
+      << show
+</span>
+
+<div class='history' [ngClass]="{'hideAnimation': !showHistory}">
+
+    <span class='toggleHistory hideHistory' (click)='showHistory = !showHistory'>hide >></span>
+    <h3>Search History</h3>
+    <table class="table table-hover">
+        <thead>
+            <th>Term</th>
+            <th>Date</th>
+            <th>flickr</th>
+            <th>Pixabay</th>
+        </thead>
+        <tbody>
+            <tr *ngFor='let search of searchHistory' (click)='historyClicked.emit(search)'>
+                <td>{{search.searchTerm}}</td>
+                <td>{{search.dateOfSearch | date:'mediumDate' }}</td>
+                <td>{{search.counts[flickrId]}} </td>
+                <td>{{search.counts[pixabayId]}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="clearHistoryBtn" (click)='clearHistory.emit()'>Clear History</button>
+</div>

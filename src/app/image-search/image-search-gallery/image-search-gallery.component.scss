@@ -1,0 +1,76 @@
+@import '../../../styles.scss';
+
+.gallery{
+    display: flex;
+    flex-flow: column;
+
+    h4{
+        margin-left: 25px;
+    }  
+
+    .imgsWrap{
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        .imgRemover{
+            background: white;
+            opacity: 0.6;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            margin-bottom: 6px;
+            text-decoration: none;
+            visibility: hidden;
+        }
+
+        .imgWrap:hover .imgRemover{
+            visibility: visible;
+        }
+
+        .imgWrap{            
+            background: hsla($base-hsl-color, 20%, 40%, 0.2);
+            padding:0.7em;
+            margin:0.7em;
+            display: flex;
+            flex-flow: column nowrap;
+            width: 48%;
+            box-sizing: border-box;           
+
+            @media (min-width: $breakpoint-small) {
+                width:27.3%;
+            }
+
+            @media (min-width: $breakpoint-medium) {
+                width: 19%;
+            }
+
+            @media (min-width: $breakpoint-large) {
+             width: 14%;
+            }
+
+            .img{
+                align-self: center;
+                max-width: 100%;
+
+                @include animation('showSlowly 1s');
+
+                @include keyframes (showSlowly) {
+                0% {width: 0; height:0; opacity:0; }
+                100% {width: 100%; height:100%; opacity:1; }
+            }
+        }            
+    }     
+}
+
+.noResults{
+color: orangered;
+font-size: 24px;
+padding: 2em 0;
+border-style: dashed;
+text-align: center;
+margin: 10%;
+}
+
+}
+
